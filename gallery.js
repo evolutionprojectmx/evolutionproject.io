@@ -55,7 +55,7 @@
       infoBox('No pude detectar el repositorio automáticamente. Agrega window.GALLERY_CONFIG = { owner: "tuUsuario", repo: "tuRepo", branch: "main" } en gallery.html.');
       return;
     }
-    const path = 'docs/Galery';
+    const path = './Galery';
     const api = `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`;
     try{
       const cached = JSON.parse(localStorage.getItem('gallery_cache')||'null');
