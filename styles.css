@@ -1,0 +1,106 @@
+:root{
+  --brand-primary:#0f3d33;
+  --brand-primary-dark:#0b3129;
+  --brand-surface:#0f1c18;
+  --brand-accent:#c9a85b;
+  --brand-accent-dark:#b38f43;
+  --text:#f5f3eb;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  color:var(--text);
+  background:var(--brand-primary);
+}
+img{max-width:100%;display:block}
+
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+.grid.two{display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
+@media (max-width:900px){.grid.two{grid-template-columns:1fr;}}
+.center-gap{gap:56px}
+
+.display{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:clamp(32px,5vw,56px);line-height:1.05;margin:0}
+.h2{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:clamp(26px,4vw,38px);margin:0 0 8px}
+.h3{font-family:"Playfair Display",Georgia,serif;font-weight:700;margin:0 0 6px}
+.lead{color:rgba(255,255,255,.8);margin:16px 0 0}
+.muted{color:rgba(255,255,255,.7)}
+.link{color:var(--text);text-decoration:underline}
+
+.site-header{position:sticky;top:0;z-index:40;backdrop-filter:blur(12px);background:rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.1)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{height:60px;width:auto}
+.logo-fallback{width:36px;height:36px;border-radius:50%;background:color-mix(in hsl, var(--brand-accent), #000 10%);display:flex;align-items:center;justify-content:center;font-weight:700;color:#111}
+.brand-name{font-family:"Playfair Display",serif;letter-spacing:.3px}
+.nav{display:flex;gap:24px}
+.nav a{color:rgba(255,255,255,.85);text-decoration:none;transition:color .2s}
+.nav a:hover{color:#fff}
+.cta-inline .btn{padding:10px 14px}
+
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-20% -20% auto -20%;height:620px;pointer-events:none;z-index:0;background:radial-gradient(600px 300px at 20% 20%, rgba(201,168,91,.2), transparent 60%),radial-gradient(500px 260px at 110% 10%, rgba(16,185,129,.20), transparent 60%);} 
+.hero .container{position:relative;z-index:1;padding-top:96px;padding-bottom:120px}
+.actions{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid transparent;padding:12px 18px;font-weight:600;text-decoration:none;transition:background-color .2s,color .2s,box-shadow .2s}
+.btn-primary{background:var(--brand-accent);color:#111}
+.btn-primary:hover{background:var(--brand-accent-dark);box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.btn-secondary{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.2)}
+.btn-secondary:hover{background:rgba(255,255,255,.22)}
+.btn-wa{background:#25D366;color:#fff}
+.btn-wa:hover{background:#1ebe5b}
+.trust{margin-top:18px;display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.75)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--brand-accent)}
+
+.section{padding:88px 0}
+.section-alt{background:var(--brand-surface)}
+.card.glass{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:24px;backdrop-filter:blur(14px)}
+.list{margin:16px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.list li{display:flex;align-items:center;gap:10px}
+.icon-check{width:18px;height:18px;color:var(--brand-accent)}
+
+/* Accordion */
+.accordion{margin-top:24px;display:grid;gap:12px}
+.acc-item{border:1px solid rgba(255,255,255,.12);border-radius:12px;background:rgba(255,255,255,.04);overflow:hidden}
+.acc-trigger{width:100%;text-align:left;background:transparent;color:#fff;border:0;padding:16px 18px;display:flex;align-items:center;gap:10px;cursor:pointer}
+.acc-trigger::after{content:"▾";margin-left:auto;transition:transform .2s}
+.acc-item.open .acc-trigger::after{transform:rotate(-180deg)}
+.badge{display:inline-flex;align-items:center;justify-content:center;width:32px;height:28px;border-radius:8px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);color:var(--brand-accent);font-weight:700}
+.acc-content{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 18px}
+.acc-item.open .acc-content{padding:8px 18px 18px}
+.grid-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0;padding:0;list-style:none}
+.grid-list .check{width:10px;height:10px;border-radius:50%;background:var(--brand-accent);display:inline-block;margin-right:6px}
+@media (max-width:700px){.grid-list{grid-template-columns:1fr}}
+
+/* Carousel */
+.carousel{position:relative}
+.car-track{display:flex;gap:16px;overflow-x:auto;scroll-behavior:smooth;padding:4px}
+.car-item{min-width:min(100%,360px);flex:0 0 auto;border-radius:16px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);overflow:hidden}
+.car-item img{width:100%;height:240px;object-fit:cover;transition:transform .5s}
+.car-item:hover img{transform:scale(1.05)}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:50%;width:36px;height:36px;display:grid;place-items:center;cursor:pointer}
+.car-btn:hover{background:rgba(255,255,255,.2)}
+.car-btn.prev{left:-8px}
+.car-btn.next{right:-8px}
+
+/* Footer */
+.site-footer{background:#000;padding:26px 0;border-top:1px solid rgba(255,255,255,.12)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.footer-inner .links{display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.85)}
+.footer-inner a{color:rgba(255,255,255,.85);text-decoration:none}
+.footer-inner a:hover{color:#fff}
+
+/* Floating WhatsApp */
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:60}
+.wa-btn{width:56px;height:56px;border-radius:50%;border:0;display:grid;place-items:center;background:#25D366;color:#fff;cursor:pointer;box-shadow:0 10px 30px rgba(37,211,102,.45);transition:transform .15s}
+.wa-btn:hover{transform:translateY(-2px)}
+.wa-btn svg{width:26px;height:26px}
+.wa-menu{position:absolute;right:0;bottom:70px;display:none;min-width:240px;background:rgba(0,0,0,.65);color:#fff;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(16px);border-radius:12px;overflow:hidden}
+.wa-menu a{display:block;padding:10px 14px;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.08)}
+.wa-menu a:hover{background:rgba(255,255,255,.08)}
+.wa-float.open .wa-menu{display:block}
+
+/* Utilities */
+.section .container{padding-top:0}
+.skip{position:absolute;left:-9999px;top:auto}
