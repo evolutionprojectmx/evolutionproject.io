@@ -3,7 +3,7 @@
   if(!grid) return;
 
   function guessRepo(){
-    const host = "evoproject.com.mx"; // user.github.io o dominio propio
+    const host = location.hostname; // user.github.io o dominio propio
     const path = location.pathname.replace(/^\/+|\/+$/g,''); // puede incluir repo
     let owner = '', repo = '', branch = 'main';
 
